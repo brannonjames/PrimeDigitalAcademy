@@ -1,0 +1,107 @@
+$font: 'Ubuntu', sans-serif;
+
+@mixin flex-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+body,
+input,
+button {
+  font-family: $font;
+}
+
+body {
+  @include flex-around;
+  margin: 0;
+  height: 100vh;
+  font-weight: 500;
+  background-image: url('https://images.unsplash.com/photo-1495435229349-e86db7bfa013?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5cf241cfdaa0e6bc4bf73c50d2e19e5d&auto=format&fit=crop&w=2458&q=80.jpg');
+  background-position: center center;
+  background-color: black;
+  background-size: cover;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+input {
+  font-weight: 400;
+}
+
+button {
+  font-weight: 700;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+h1,
+h2 {
+  color: white;
+  font-size: 3.4em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+header {
+  margin: 10vh;
+  text-align: center;
+}
+
+form {
+  @include flex-around;
+  flex-basis: 40%;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 22px;
+  max-width: 400px;
+  min-width: 300px;
+  input,
+  button {
+    font-size: 1.2em;
+    padding: 4px;
+    margin: 12px 0;
+  }
+  button {
+    font-size: 1.4em;
+  }
+}
+
+#carList {
+  flex-basis: 48%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.7);
+  max-width: 640px;
+  min-width: 340px;
+  > li {
+    margin: 10px;
+    position: relative;
+  }
+  img {
+    width: 100%;
+  }
+  ul {
+    @include flex-around;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.2em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px 0;
+  }
+}
+
+.deleteButton {
+  z-index: 10;
+}
