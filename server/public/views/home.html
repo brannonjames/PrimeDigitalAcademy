@@ -1,0 +1,27 @@
+<main>
+
+  <ng-include src=" 'views/templates/header.html' "></ng-include>
+
+  <form ng-submit="vm.handleSubmit()" class="card form">
+    <select ng-model="vm.newListing.type" ng-required>
+      <option value="" selected disabled>Type</option>
+      <option ng-value=" 'rent' ">Rent</option>
+      <option ng-value=" 'buy' ">Buy</option>
+    </select>
+    <select ng-model="vm.newListing.image_path" required>
+      <option value="" selected disabled>Image</option>
+      <option ng-value=" 'classis-flats.jpg' ">Classic</option>
+      <option ng-value=" 'haunted.jpg' ">Haunted</option>
+      <option ng-value=" 'older.jpg' ">Old</option>
+      <option ng-value=" 'rental1.jpg' ">Rental 1</option>
+      <option ng-value=" 'rental2.jpg' ">Rental 2</option>
+      <option ng-value=" 'shiny.jpg' ">Shiny</option>
+      <option ng-value=" 'stony.jpg' ">Stony</option>
+    </select>
+    <input type="text" placeholder="City" ng-model="vm.newListing.city" required />
+    <input type="number" placeholder="Square Footage" ng-model="vm.newListing.sqft" required />
+    <input type="number" placeholder="Cost" ng-model="vm.newListing.cost" required />
+
+    <button>Submit</button>
+  </form>
+</main>

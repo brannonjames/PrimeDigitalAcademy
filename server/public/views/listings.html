@@ -1,0 +1,8 @@
+<main>
+  <ng-include src=" 'views/templates/header.html' "></ng-include>
+  
+  <ul class="listings">
+    <li ng-repeat="listing in vm.listings" ng-include=" 'views/templates/card.html' "></li>
+  </ul>
+
+</main>

@@ -1,0 +1,9 @@
+<div class="card">
+    <img ng-src="images/{{ listing.image_path }}" />
+    <div>
+      <p>{{ listing.sqft }} sqft</p>
+      <p>${{ listing.cost }}</p>
+    </div>
+    <p>{{ listing.city }}</p>
+    <button ng-click="vm.handleDelete(listing.id)">Delete</button>
+</div>

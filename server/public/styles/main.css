@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px;
+  padding: 8px 12px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul {
+  display: flex;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+
+nav li a {
+  display: inline-block;
+  padding: 8px 12px;
+
+  border-right: 1px solid rgba(0,0,0,0.2);
+}
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px;
+  width: 220px;
+  margin: 20px auto;
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+}
+
+.card > div {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.card > p {
+  font-weight: bold;
+}
+
+ /* HOME */
+
+.form {
+  width: 400px;
+  align-items: stretch;
+}
+
+ main form input,
+ main form select,
+ main form button {
+   height: 32px;
+   font-size: 1.4em;
+   margin: 8px 0;
+   padding: 4px;
+ }
+
+ main form button {
+   height: auto;
+   padding: 10px;
+   width: 60%;
+   margin: 8px auto;
+ }
+
+ /* LISTINGS  */
+
+ .listings {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   padding: 20px;
+ }
