@@ -1,1 +1,2 @@
-## Projects and assignments worked on while at Prime Digital Academy
+# 30-min-angular
+### First Angular project to practice setup and show 2-way binding 
