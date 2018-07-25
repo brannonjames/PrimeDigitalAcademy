@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Angular Photo Gallery</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <script src="vendors/angular.js"></script>
+  <script src="scripts/people.js"></script>
+  <script src="scripts/client.js"></script>
+  <script></script>
+</head>
+<body>
+  <div class="container" ng-app="Photos">
+    <header>
+      <h1>Angular Photo Gallery</h1>
+      <h3>Click on a photo to reveal the name.</h3>
+    </header>
+    <main ng-controller="PhotosController as vm">
+
+      <div>
+        <input ng-change="vm.handleChange()" ng-model="vm.search" class="search" placeholder="Search" />
+      </div>
+      
+      <button ng-click="vm.handleClear()" class="clear">Clear</button>
+      
+      <ul>
+        <li  ng-repeat="person in vm.people" ng-click="vm.toggleName(person)" ng-init="person.views=0">
+          <div class="content">
+              <div ng-show="person.showName" class="name">
+                <h4>{{ person.name }}</h4>
+                <a ng-href="https://github.com/{{ person.githubUsername }}" target="_blank">
+                  <img src="github-brands.svg" class="github-logo" />
+                </a>
+              </div>
+              <img ng-src="https://github.com/{{ person.githubUsername }}.png" ng-click="person.views = person.views + 1"  />
+          </div>
+          <p class="views clear">Views: {{ person.views }}</p>
+        </li>
+      </ul>
+
+    </main>
+  </div>
+
+  <!-- github icons from FontAwesome https://fontawesome.com/license -->
+</body>
+</html>
