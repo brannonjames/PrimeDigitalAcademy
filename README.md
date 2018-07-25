@@ -1,1 +1,1 @@
-### A collection of projects built while at Prime Digital Academy
+## Projects and assignments worked on while at Prime Digital Academy
