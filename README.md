@@ -3,9 +3,7 @@
 A collection of some projects I made while in prime
 Each with their own branch with some previews below
 
-## Inside this repo
-
-Ordered by my favorites
+## Featured
 
 ### Angular Todo List
 
