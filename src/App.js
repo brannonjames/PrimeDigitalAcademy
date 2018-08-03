@@ -6,6 +6,8 @@ import FeelingView from './views/FeelingView';
 import SupportedView from './views/SupportedView';
 import UnderstandingView from './views/UnderstandingView';
 
+import './App.css';
+
 class App extends Component {
   render() {
     return (
