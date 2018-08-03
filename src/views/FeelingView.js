@@ -4,7 +4,13 @@ import { connect } from 'react-redux';
 class FeelingView extends Component {
   render() {
     return (
-      <div>Feeling View</div>
+      <div></div>
+      // <Feedback>
+      //   <FeedbackFormInput
+      //     title="How are you feeling today?"
+      //     type="rating"
+      //   />
+      // </Feedback>
     )
   }
 }
