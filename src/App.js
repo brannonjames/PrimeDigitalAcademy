@@ -16,15 +16,13 @@ class App extends Component {
         
           <Header />
 
-          <main>
-            <Switch>
-              <Route exact path="/" component={FeelingView} />
-              <Route path="/2" component={UnderstandingView} />
-              <Route path="/3" component={SupportedView} />
-              <Route path="/4" component={CommentView} />
-              <Redirect to="/" />
-            </Switch>
-          </main>
+          <Switch>
+            <Route exact path="/" component={FeelingView} />
+            <Route path="/2" component={UnderstandingView} />
+            <Route path="/3" component={SupportedView} />
+            <Route path="/4" component={CommentView} />
+            <Redirect to="/" />
+          </Switch>
         
         </div>
       </Router>

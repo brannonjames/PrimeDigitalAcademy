@@ -1,8 +1,8 @@
 import React from 'react';
-import './FeedbackWrapper.css';
+import './FeedbackButtonSection.css';
 
 export default ({ children }) => (
-  <div className="FeedbackWrapper">
+  <div className="FeedbackButtonSection">
     { children }
   </div>
 );

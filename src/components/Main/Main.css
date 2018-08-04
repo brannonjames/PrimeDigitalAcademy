@@ -1,6 +1,6 @@
-.FeedbackWrapper {
+.Main {
   flex: 1;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
 }
