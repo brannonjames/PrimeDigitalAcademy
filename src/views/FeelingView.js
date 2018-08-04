@@ -5,13 +5,24 @@ import { addFeelingRating } from '../store/actions/feedback';
 import Main from '../components/Main/Main';
 import FeedbackForm from '../components/FeedbackForm/FeedbackForm';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
+import FeedbackInput from '../components/FeedbackInput/FeedbackInput';
+import FeedbackButtonSection from '../components/FeedbackButtonSection/FeedbackButtonSection';
+import Button from '../components/Button/Button';
 
 class FeelingView extends Component {
 
-  handleSubmit = value => {
-    const { history, addFeelingRating } = this.props;
+  state = { feeling: 0 } 
 
-    addFeelingRating(value);
+  handleChange = e => {
+    const feeling = Number(e.target.value);
+    this.setState({ feeling });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const { history, dispatch } = this.props;
+
+    dispatch(addFeelingRating(this.state.feeling));
     history.push('/2');
   }
 
@@ -24,17 +35,24 @@ class FeelingView extends Component {
           percentage={25}
         />
 
-        <FeedbackForm
-          question="How are you feeling today?"
-          type="rating"
-          buttonLabel="Next"
-          leftLabel="I'm very stressed"
-          rightLabel="I'm feeling great!"
-          onSubmit={this.handleSubmit}
-        />
+        <FeedbackForm onSubmit={this.handleSubmit}>
+
+          <FeedbackInput 
+            label="How are you feeling today?" 
+            leftLabel="I'm very stressed"
+            rightLabel="I'm feeling great!"
+            onChange={this.handleChange}
+          />
+
+          <FeedbackButtonSection>
+            <Button>Next</Button>
+          </FeedbackButtonSection>
+
+        </FeedbackForm>
+
       </Main>
     )
   }
 }
 
-export default connect(null, {addFeelingRating})(FeelingView);
+export default connect()(FeelingView);

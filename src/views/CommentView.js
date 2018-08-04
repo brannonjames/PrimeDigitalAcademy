@@ -6,24 +6,36 @@ import { addComment, resetFeedback } from '../store/actions/feedback';
 import Main from '../components/Main/Main';
 import FeedbackForm from '../components/FeedbackForm/FeedbackForm';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
+import FeedbackInput from '../components/FeedbackInput/FeedbackInput';
+import FeedbackButtonSection from '../components/FeedbackButtonSection/FeedbackButtonSection';
+import Button from '../components/Button/Button';
+import { resolve } from 'url';
 
-class UnderstandingView extends Component {
+class CommentView extends Component {
 
-  handleSubmit = value => {
+  state = { comment: '' } 
+
+  handleChange = e => {
+    this.setState({ comment: e.target.value });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
     const { history, dispatch, feedback } = this.props;
+    const { comment } = this.state;
 
+    dispatch(addComment(comment));
 
-    dispatch(addComment(value));
-
-    axios.post('/api/feedback', feedback)
+    axios.post('/api/feedback', {...feedback, comments: comment})
       .then(() => {
         dispatch(resetFeedback());
         history.push('/thank-you');
       })
-      .catch(err => console.log(err));
-  
-  }
+      .catch(err => {
+        console.log(err);
+      });
 
+  }
 
 
   render() {
@@ -35,12 +47,19 @@ class UnderstandingView extends Component {
           percentage={100}
         />
 
-        <FeedbackForm
-          text
-          question="Any comments you want to leave?"
-          buttonLabel="Submit"
-          onSubmit={this.handleSubmit}
-        />
+        <FeedbackForm onSubmit={this.handleSubmit}>
+          <FeedbackInput 
+            text
+            label="Any comments you want to leave?"
+            onChange={this.handleChange}
+          />
+
+          <FeedbackButtonSection>
+            <Button>Submit</Button>
+          </FeedbackButtonSection>
+
+        </FeedbackForm>
+
       </Main>
     )
   }
@@ -50,4 +69,4 @@ const mapStateToProps = ({ feedback }) => ({
   feedback
 });
 
-export default connect(mapStateToProps)(UnderstandingView);
+export default connect(mapStateToProps)(CommentView);

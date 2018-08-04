@@ -10,7 +10,7 @@ const initialState = {
 export default (state=initialState, action) => {
   switch (action.type) {
     case ADD_ALL_FEEDBACK:
-      return state;
+      return { feedback: action.payload };
     case REMOVE_FEEDBACK:
       return state;
     default:

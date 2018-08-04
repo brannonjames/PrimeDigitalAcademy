@@ -5,13 +5,24 @@ import { addSupportedRating } from '../store/actions/feedback';
 import Main from '../components/Main/Main';
 import FeedbackForm from '../components/FeedbackForm/FeedbackForm';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
+import FeedbackInput from '../components/FeedbackInput/FeedbackInput';
+import FeedbackButtonSection from '../components/FeedbackButtonSection/FeedbackButtonSection';
+import Button from '../components/Button/Button';
 
 class UnderstandingView extends Component {
 
-  handleSubmit = value => {
-    const { history, addSupportedRating } = this.props;
+  state = { supported: 0 } 
 
-    addSupportedRating(value);
+  handleChange = e => {
+    const supported = Number(e.target.value);
+    this.setState({ supported });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const { history, dispatch } = this.props;
+
+    dispatch(addSupportedRating(this.state.supported));
     history.push('/4');
   }
 
@@ -24,17 +35,23 @@ class UnderstandingView extends Component {
           percentage={75}
         />
 
-        <FeedbackForm
-          question="How well do you feel supported?"
-          type="rating"
-          buttonLabel="Next"
-          leftLabel="I feel abandoned."
-          rightLabel="I feel supported!"
-          onSubmit={this.handleSubmit}
-        />
+        <FeedbackForm onSubmit={this.handleSubmit}>
+          <FeedbackInput 
+            label="how well do you feel supported?" 
+            leftLabel="I feel abandoned."
+            rightLabel="I feel supported"
+            onChange={this.handleChange}
+          />
+
+          <FeedbackButtonSection>
+            <Button>Next</Button>
+          </FeedbackButtonSection>
+
+        </FeedbackForm>
+
       </Main>
     )
   }
 }
 
-export default connect(null, {addSupportedRating})(UnderstandingView);
+export default connect()(UnderstandingView);

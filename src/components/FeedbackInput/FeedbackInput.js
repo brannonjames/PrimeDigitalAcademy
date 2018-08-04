@@ -5,13 +5,13 @@ class FeedbackInput extends Component {
 
   renderInput() {
 
-    const { handleChange } = this.props;
+    const { onChange } = this.props;
 
     if (this.props.text) {
 
       return (
         <div>
-          <textarea onChange={handleChange}></textarea>
+          <textarea onChange={onChange}></textarea>
         </div>
       )
     } else {
@@ -19,27 +19,27 @@ class FeedbackInput extends Component {
         <div className="radio-section">
           <div>
             <label htmlFor="1">1</label>
-            <input type="radio" onChange={handleChange} name="rating" value="1" id="1" />
+            <input type="radio" onChange={onChange} name="rating" value="1" id="1" />
           </div>
 
           <div>
             <label htmlFor="2">2</label>
-            <input type="radio" onChange={handleChange} name="rating" value="2" id="2" />
+            <input type="radio" onChange={onChange} name="rating" value="2" id="2" />
           </div>
 
           <div>
             <label htmlFor="3">3</label>
-            <input type="radio" onChange={handleChange} name="rating" value="3" id="3" />
+            <input type="radio" onChange={onChange} name="rating" value="3" id="3" />
           </div>
 
           <div>
             <label htmlFor="4">4</label>
-            <input type="radio" onChange={handleChange} name="rating" value="4" id="4" />
+            <input type="radio" onChange={onChange} name="rating" value="4" id="4" />
           </div>
 
           <div>
             <label htmlFor="5">5</label>
-            <input type="radio" onChange={handleChange} name="rating" value="5" id="5" />
+            <input type="radio" onChange={onChange} name="rating" value="5" id="5" />
           </div> 
         </div>
       )
