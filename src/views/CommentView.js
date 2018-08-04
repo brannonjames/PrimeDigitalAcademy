@@ -16,7 +16,7 @@ class UnderstandingView extends Component {
     dispatch(addComment(value));
 
     axios.post('/api/feedback', feedback)
-      .then(() => history.push('/'))
+      .then(() => history.push('/thank-you'))
       .catch(err => console.log(err));
   
   }

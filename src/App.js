@@ -5,6 +5,7 @@ import CommentView from './views/CommentView';
 import FeelingView from './views/FeelingView';
 import SupportedView from './views/SupportedView';
 import UnderstandingView from './views/UnderstandingView';
+import ThankYouView from './views/ThankYouView';
 
 import './App.css';
 
@@ -21,6 +22,7 @@ class App extends Component {
             <Route path="/2" component={UnderstandingView} />
             <Route path="/3" component={SupportedView} />
             <Route path="/4" component={CommentView} />
+            <Route path="/thank-you" component={ThankYouView} />
             <Redirect to="/" />
           </Switch>
         
