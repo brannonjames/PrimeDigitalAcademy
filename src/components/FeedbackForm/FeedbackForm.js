@@ -7,18 +7,37 @@ import Button from '../Button/Button';
 
 class FeedbackForm extends Component {
 
-  
+  state = {
+    value: ''
+  }
+
+  handleChange = e => {
+    this.setState({ value: e.target.value });
+  }
+
+  handleSubmit = () => {
+    this.props.onSubmit(this.state.value);
+  }
 
   render() {
-    const { buttonLabel } = this.props;
+    const { buttonLabel, children, leftLabel, rightLabel, text } = this.props;
     return (
       <div className="FeedbackForm">
 
-        <FeedbackInput />
+        <FeedbackInput
+          text={text}
+          label={this.props.question}
+          leftLabel={leftLabel}
+          rightLabel={rightLabel}
+          handleChange={this.handleChange}
+        />
+
+        { children }
 
         <FeedbackButtonSection>
           <Button 
             label={buttonLabel}
+            onClick={this.handleSubmit}
           />
         </FeedbackButtonSection>
 

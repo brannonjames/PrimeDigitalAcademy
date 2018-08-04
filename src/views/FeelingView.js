@@ -19,7 +19,9 @@ class FeelingView extends Component {
           question="How are you feeling today?"
           type="rating"
           buttonLabel="Next"
-
+          leftLabel="I'm very stressed"
+          rightLabel="I'm feeling great!"
+          onSubmit={val => console.log(val)}
         />
       </Main>
     )
