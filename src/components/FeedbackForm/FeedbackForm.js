@@ -8,7 +8,7 @@ import Button from '../Button/Button';
 class FeedbackForm extends Component {
 
   state = {
-    value: ''
+    value: 0
   }
 
   handleChange = e => {
