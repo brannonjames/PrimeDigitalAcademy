@@ -9,7 +9,6 @@ import ProgressBar from '../components/ProgressBar/ProgressBar';
 import FeedbackInput from '../components/FeedbackInput/FeedbackInput';
 import FeedbackButtonSection from '../components/FeedbackButtonSection/FeedbackButtonSection';
 import Button from '../components/Button/Button';
-import { resolve } from 'url';
 
 class CommentView extends Component {
 
