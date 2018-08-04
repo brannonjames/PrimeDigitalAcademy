@@ -10,6 +10,7 @@
 
 .Button:hover {
   background-color: #039b90;
+  cursor: pointer;
 }
 
 .Button:active {

@@ -6,6 +6,12 @@ import FeedbackForm from '../components/FeedbackForm/FeedbackForm';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
 
 class FeelingView extends Component {
+
+  handleSubmit = value => {
+    console.log(value);
+    this.props.history.push('/2');
+  }
+
   render() {
     return (
       <Main>
@@ -21,7 +27,7 @@ class FeelingView extends Component {
           buttonLabel="Next"
           leftLabel="I'm very stressed"
           rightLabel="I'm feeling great!"
-          onSubmit={val => console.log(val)}
+          onSubmit={this.handleSubmit}
         />
       </Main>
     )
