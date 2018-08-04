@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addSupportedRating } from '../store/actions/feedback';
 
 import Main from '../components/Main/Main';
 import FeedbackForm from '../components/FeedbackForm/FeedbackForm';
@@ -8,8 +9,10 @@ import ProgressBar from '../components/ProgressBar/ProgressBar';
 class UnderstandingView extends Component {
 
   handleSubmit = value => {
-    console.log(value);
-    this.props.history.push('/4');
+    const { history, addSupportedRating } = this.props;
+
+    addSupportedRating(value);
+    history.push('/4');
   }
 
   render() {
@@ -34,4 +37,4 @@ class UnderstandingView extends Component {
   }
 }
 
-export default connect()(UnderstandingView);
+export default connect(null, {addSupportedRating})(UnderstandingView);

@@ -11,20 +11,19 @@ const initialState = {
   understanding: 0,
   support: 0,
   comments: '',
-  flagged: false,
-  date: ''
+  flagged: false
 }
 
 export default (state=initialState, action) => {
   switch (action.type) {
     case ADD_FEELING_RATING:
-      return state;
+      return {...state, feeling: action.payload};
     case ADD_UNDERSTANDING_RATING:
-      return state;
+      return {...state, understanding: action.payload};
     case ADD_SUPPORTED_RATING:
-      return state;
+      return {...state, support: action.payload};
     case ADD_COMMENT:
-      return state;
+      return {...state, comments: action.payload};
     default:
       return state;        
   }
