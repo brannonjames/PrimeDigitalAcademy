@@ -2,7 +2,8 @@ import {
   ADD_FEELING_RATING,
   ADD_COMMENT,
   ADD_SUPPORTED_RATING,
-  ADD_UNDERSTANDING_RATING
+  ADD_UNDERSTANDING_RATING,
+  RESET_FEEDBACK
 } from '../actions/types';
 
 export const addFeelingRating = rating => ({
@@ -23,4 +24,8 @@ export const addSupportedRating = rating => ({
 export const addUnderstandingRating = rating => ({
   type: ADD_UNDERSTANDING_RATING,
   payload: rating
+});
+
+export const resetFeedback = () => ({
+  type: RESET_FEEDBACK
 });

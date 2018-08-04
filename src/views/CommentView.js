@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { addComment } from '../store/actions/feedback';
+import { addComment, resetFeedback } from '../store/actions/feedback';
 
 import Main from '../components/Main/Main';
 import FeedbackForm from '../components/FeedbackForm/FeedbackForm';
@@ -16,7 +16,10 @@ class UnderstandingView extends Component {
     dispatch(addComment(value));
 
     axios.post('/api/feedback', feedback)
-      .then(() => history.push('/thank-you'))
+      .then(() => {
+        dispatch(resetFeedback());
+        history.push('/thank-you');
+      })
       .catch(err => console.log(err));
   
   }

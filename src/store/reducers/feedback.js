@@ -2,7 +2,8 @@ import {
   ADD_FEELING_RATING,
   ADD_COMMENT,
   ADD_SUPPORTED_RATING,
-  ADD_UNDERSTANDING_RATING
+  ADD_UNDERSTANDING_RATING,
+  RESET_FEEDBACK
 } from '../actions/types';
 
 
@@ -24,6 +25,8 @@ export default (state=initialState, action) => {
       return {...state, support: action.payload};
     case ADD_COMMENT:
       return {...state, comments: action.payload};
+    case RESET_FEEDBACK:
+      return initialState;  
     default:
       return state;        
   }
