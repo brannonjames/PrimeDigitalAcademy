@@ -15,8 +15,8 @@ class App extends Component {
         <div className="App">
         
           <Header />
+
           <main>
-          
             <Switch>
               <Route exact path="/" component={FeelingView} />
               <Route path="/2" component={UnderstandingView} />
@@ -24,7 +24,6 @@ class App extends Component {
               <Route path="/4" component={CommentView} />
               <Redirect to="/" />
             </Switch>
-          
           </main>
         
         </div>
