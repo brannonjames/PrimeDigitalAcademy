@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { addAllFeedback } from '../store/actions/admin';
+import { addAllFeedback, removeFeedback } from '../store/actions/admin';
 
 import Main from '../components/Main/Main';
 import Table from '../components/Table/Table';
@@ -19,6 +19,12 @@ class AdminView extends Component {
       .catch(err => console.log(err));
   }
 
+  handleDelete = id => {
+    axios.delete(`/api/feedback/${id}`)
+      .then(() => this.props.dispatch(removeFeedback(id)))
+      .catch(err => console.log(err));
+  }
+
   // mapping each feedback object to give me exactly what I want to display on the table
   // 
   mapTableRows() {
@@ -27,7 +33,13 @@ class AdminView extends Component {
         understanding: row.understanding, 
         support: row.support,
         comments: row.comments,
-        delete: <Button style={{ backgroundColor: '#ff6666' }}>Delete</Button>
+        delete: (
+          <Button 
+            label="Delete"
+            style={{ backgroundColor: '#ff6666', transform: 'scale(0.8)' }}
+            onClick={() => this.handleDelete(row.id)}
+          />
+        )
       })
     );
   }

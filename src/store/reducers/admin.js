@@ -12,7 +12,11 @@ export default (state=initialState, action) => {
     case ADD_ALL_FEEDBACK:
       return { feedback: action.payload };
     case REMOVE_FEEDBACK:
-      return state;
+      return {
+        feedback: state.feedback.filter(feedback => {
+          return feedback.id !== action.payload;
+        })
+      };
     default:
       return state;    
   }

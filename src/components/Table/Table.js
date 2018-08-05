@@ -5,22 +5,22 @@ import React, { Component } from 'react';
 class Table extends Component {
 
   renderHeader() {
-    return this.props.headers.map(th => (
-      <th>{th}</th>
+    return this.props.headers.map((th, i) => (
+      <th key={i}>{th}</th>
     ));
   }
 
   renderRows() {
-    return this.props.rows.map(row => (
-      <tr>
+    return this.props.rows.map((row, i)=> (
+      <tr key={i}>
         { this.renderRow(row) }
       </tr>
     ))
   }
 
   renderRow(row) {
-    return Object.values(row).map(cell => (
-      <td>{cell}</td>
+    return Object.values(row).map((cell, i) => (
+      <td key={i}>{cell}</td>
     ));
   }
 

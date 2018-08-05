@@ -29,3 +29,10 @@ exports.create = (model, data) => {
 exports.find = model => {
   return pool.query(`SELECT * FROM ${model};`);
 }
+
+exports.findByIdAndRemove = (model, id) => {
+  return pool.query(`
+    DELETE FROM ${model}
+    WHERE id = $1;
+  `, [id])
+}

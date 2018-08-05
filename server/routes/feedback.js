@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { create, find } = require('../modules/queries');
+const { create, find, findByIdAndRemove } = require('../modules/queries');
 
 router.get('/', (req, res) => {
   find('feedback')
@@ -13,5 +13,11 @@ router.post('/', (req, res) => {
     .then(() => res.sendStatus(200))
     .catch(err => console.log(err));
 });
+
+router.delete('/:id', (req, res) => {
+  findByIdAndRemove('feedback', req.params.id)
+    .then(() => res.sendStatus(200))
+    .catch(err => console.log(err));
+})
 
 module.exports = router;
