@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Table.css';
 
 
 class Table extends Component {
@@ -26,7 +26,7 @@ class Table extends Component {
 
   render() {
     return (
-      <table>
+      <table className="Table">
         <thead>
           <tr>
             { this.renderHeader() }
