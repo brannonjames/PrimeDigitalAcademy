@@ -9,40 +9,45 @@
 }
 
 .FeedbackInput .content {
-  width: 50%;
+  width: 66%;
   background-color: white;
-  padding: 30px;
+  padding: 20px;
   padding-top: 0;
   border-radius: 4px;
   font-size: 1.6em;
   text-align: center;
 }
 
-.radio-labels {
+.radio-label-container {
   display: flex;
-  justify-content: space-between;
+}
+
+.radio-label {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+}
+
+.radio-label p {
+  text-align: center;
   font-size: 1rem;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
 }
 
 .radio-section {
   display: flex;
   justify-content: space-between;
-}
-
-.radio-section > div {
-  display: flex;
-  align-items: center;
-}
-
-.radio-section label {
-  padding-right: 4px;
+  width: 50%;
 }
 
 .radio-section input {
   margin: 0;
 }
 
-.radio-section label:hover,
 .radio-section input:hover {
   cursor: pointer;
 }

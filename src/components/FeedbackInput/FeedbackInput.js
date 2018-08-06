@@ -3,12 +3,29 @@ import './FeedbackInput.css';
 
 class FeedbackInput extends Component {
 
+  renderRadioLabels() {
+    const { leftLabel, rightLabel, text } = this.props;
+    if (!text) {
+      return (
+        <div className="radio-label-container">
+
+          <div className="radio-label">
+            <p>{leftLabel}</p>
+          </div>
+
+          <div className="radio-label">
+            <p>{rightLabel}</p>
+          </div>  
+
+        </div>
+      )
+    }
+  }
+
   renderInput() {
+    const { onChange, text } = this.props;
 
-    const { onChange } = this.props;
-
-    if (this.props.text) {
-
+    if (text) {
       return (
         <div>
           <textarea onChange={onChange}></textarea>
@@ -17,30 +34,11 @@ class FeedbackInput extends Component {
     } else {
       return (
         <div className="radio-section">
-          <div>
-            <label htmlFor="1">1</label>
-            <input type="radio" onChange={onChange} name="rating" value="1" id="1" />
-          </div>
-
-          <div>
-            <label htmlFor="2">2</label>
-            <input type="radio" onChange={onChange} name="rating" value="2" id="2" />
-          </div>
-
-          <div>
-            <label htmlFor="3">3</label>
-            <input type="radio" onChange={onChange} name="rating" value="3" id="3" />
-          </div>
-
-          <div>
-            <label htmlFor="4">4</label>
-            <input type="radio" onChange={onChange} name="rating" value="4" id="4" />
-          </div>
-
-          <div>
-            <label htmlFor="5">5</label>
-            <input type="radio" onChange={onChange} name="rating" value="5" id="5" />
-          </div> 
+          <input type="radio" onChange={onChange} name="rating" value="1" id="1" />
+          <input type="radio" onChange={onChange} name="rating" value="2" id="2" />
+          <input type="radio" onChange={onChange} name="rating" value="3" id="3" />
+          <input type="radio" onChange={onChange} name="rating" value="4" id="4" />
+          <input type="radio" onChange={onChange} name="rating" value="5" id="5" />
         </div>
       )
 
@@ -51,12 +49,15 @@ class FeedbackInput extends Component {
     return (
       <div className="FeedbackInput">
         <div className="content">
+
           <p>{this.props.label}</p>
-          <div className="radio-labels">
-            <p>{this.props.leftLabel}</p>
-            <p>{this.props.rightLabel}</p>
+
+          { this.renderRadioLabels() }
+
+          <div className="input-container">
+            { this.renderInput() }
           </div>
-          { this.renderInput() }
+
         </div>
       </div>
     )
